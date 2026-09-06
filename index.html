@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gemini AI</title>
+  <title>mquan AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
     }
 
     aside {
-      width: 260px;
+      width: 250px;
       background-color: var(--sidebar-bg);
       display: flex;
       flex-direction: column;
@@ -44,50 +44,63 @@
     }
 
     @media (max-width: 768px) {
-      aside { position: absolute; left: -260px; height: 100%; }
+      aside { position: absolute; left: -250px; height: 100%; }
       aside.open { left: 0; }
     }
 
-    .sidebar-top { display: flex; flex-direction: column; gap: 1.5rem; }
-    .brand { display: flex; align-items: center; gap: 0.75rem; padding: 0 0.5rem; }
+    .sidebar-top { display: flex; flex-direction: column; gap: 1.25rem; }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0 0.5rem;
+    }
 
-    .gemini-sparkle {
-      width: 24px;
-      height: 24px;
+    .mquan-sparkle {
+      width: 20px;
+      height: 20px;
       background: linear-gradient(135deg, #4285f4, #9b72cb, #d96570);
       -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z'/%3E%3C/svg%3E") no-repeat center / contain;
       mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z'/%3E%3C/svg%3E") no-repeat center / contain;
     }
 
-    .brand span { font-size: 1.15rem; font-weight: 500; color: #e3e3e3; }
+    .brand span {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #e3e3e3;
+      text-transform: lowercase;
+    }
 
     .new-chat-btn {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
       background: #131314;
       border: 1px solid rgba(255, 255, 255, 0.08);
       color: var(--text-main);
-      padding: 0.75rem 1rem;
+      padding: 0.65rem 0.9rem;
       border-radius: 999px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       cursor: pointer;
       font-weight: 500;
+      transition: background 0.2s;
     }
 
     .new-chat-btn:hover { background: #282a2c; }
-    .chat-history { display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.5rem; }
-    .history-title { font-size: 0.75rem; color: var(--text-sub); padding: 0 0.5rem; margin-bottom: 0.25rem; text-transform: uppercase; font-weight: 500; }
+    .chat-history { display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.25rem; }
+    .history-title { font-size: 0.72rem; color: var(--text-sub); padding: 0 0.5rem; margin-bottom: 0.25rem; text-transform: uppercase; font-weight: 500; }
     
     .history-item {
-      padding: 0.6rem 0.75rem;
-      font-size: 0.85rem;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.82rem;
       color: var(--text-sub);
       border-radius: 8px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -103,8 +116,8 @@
       background: none;
       border: none;
       color: var(--accent-blue);
-      font-size: 0.85rem;
-      padding: 0.6rem 0.5rem;
+      font-size: 0.8rem;
+      padding: 0.5rem;
       border-radius: 8px;
       cursor: pointer;
       text-align: left;
@@ -113,12 +126,20 @@
 
     main { flex: 1; display: flex; flex-direction: column; height: 100%; position: relative; }
 
-    .top-nav { height: 60px; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
-    .menu-toggle { background: none; border: none; color: var(--text-main); font-size: 1.25rem; cursor: pointer; display: none; }
+    .top-nav { height: 56px; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .menu-toggle { background: none; border: none; color: var(--text-main); font-size: 1.15rem; cursor: pointer; display: none; }
     @media (max-width: 768px) { .menu-toggle { display: block; } }
 
-    .model-selector { font-size: 1.15rem; font-weight: 500; color: var(--text-sub); display: flex; align-items: center; gap: 0.4rem; cursor: pointer; }
-    .model-selector span.active { color: #e3e3e3; }
+    .model-selector {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+    }
+    .model-selector span.active { color: #e3e3e3; font-weight: 600; }
 
     .chat-container {
       flex: 1;
@@ -129,11 +150,11 @@
       align-items: center;
     }
 
-    .chat-inner { width: 100%; max-width: 780px; display: flex; flex-direction: column; gap: 1.5rem; }
+    .chat-inner { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 1.5rem; }
 
-    .welcome-screen { display: flex; flex-direction: column; gap: 2rem; margin-top: 4vh; }
+    .welcome-screen { display: flex; flex-direction: column; gap: 1.75rem; margin-top: 4vh; }
     .greeting h2 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 500;
       letter-spacing: -0.02em;
       background: linear-gradient(74deg, #4285f4 0%, #9b72cb 30%, #d96570 50%, #4285f4 100%);
@@ -141,33 +162,33 @@
       -webkit-text-fill-color: transparent;
       line-height: 1.2;
     }
-    .greeting h3 { font-size: 3rem; font-weight: 500; letter-spacing: -0.02em; color: #444746; line-height: 1.2; }
-    @media (max-width: 600px) { .greeting h2, .greeting h3 { font-size: 2rem; } }
+    .greeting h3 { font-size: 2.5rem; font-weight: 500; letter-spacing: -0.02em; color: #444746; line-height: 1.2; }
+    @media (max-width: 600px) { .greeting h2, .greeting h3 { font-size: 1.85rem; } }
 
-    .suggestion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.85rem; }
+    .suggestion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; }
     .suggestion-card {
       background: var(--card-bg);
-      border-radius: 16px;
-      padding: 1.25rem 1rem;
+      border-radius: 14px;
+      padding: 1.15rem 0.9rem;
       cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 160px;
+      height: 145px;
       transition: all 0.2s ease;
       border: 1px solid transparent;
     }
     .suggestion-card:hover { background: var(--card-hover); border-color: rgba(255, 255, 255, 0.08); transform: translateY(-2px); }
-    .card-text { font-size: 0.9rem; color: var(--text-main); line-height: 1.4; }
-    .card-icon { align-self: flex-end; width: 36px; height: 36px; background: #131314; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .card-text { font-size: 0.85rem; color: var(--text-main); line-height: 1.4; }
+    .card-icon { align-self: flex-end; width: 32px; height: 32px; background: #131314; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
 
     .message-row { display: flex; gap: 1rem; width: 100%; }
     .message-row.user { justify-content: flex-end; }
-    .user-bubble { background: #282a2c; color: var(--text-main); padding: 0.85rem 1.25rem; border-radius: 20px; max-width: 80%; font-size: 0.95rem; line-height: 1.5; }
+    .user-bubble { background: #282a2c; color: var(--text-main); padding: 0.8rem 1.15rem; border-radius: 18px; max-width: 80%; font-size: 0.92rem; line-height: 1.5; }
 
-    .gemini-response { display: flex; gap: 1rem; width: 100%; }
-    .gemini-avatar { width: 32px; height: 32px; flex-shrink: 0; margin-top: 4px; }
-    .response-content { flex: 1; font-size: 0.95rem; line-height: 1.7; color: var(--text-main); white-space: pre-wrap; word-break: break-word; }
+    .mquan-response { display: flex; gap: 0.85rem; width: 100%; }
+    .mquan-avatar { width: 28px; height: 28px; flex-shrink: 0; margin-top: 3px; }
+    .response-content { flex: 1; font-size: 0.92rem; line-height: 1.7; color: var(--text-main); white-space: pre-wrap; word-break: break-word; }
 
     .input-wrapper {
       position: absolute;
@@ -184,10 +205,10 @@
 
     .pill-input {
       width: 100%;
-      max-width: 780px;
+      max-width: 760px;
       background: var(--input-bg);
-      border-radius: 32px;
-      padding: 0.75rem 1.25rem;
+      border-radius: 28px;
+      padding: 0.65rem 1.15rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -202,9 +223,9 @@
       outline: none;
       color: var(--text-main);
       font-family: inherit;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       resize: none;
-      height: 24px;
+      height: 22px;
       max-height: 120px;
       padding: 2px 0;
     }
@@ -214,19 +235,20 @@
       background: none;
       border: none;
       color: var(--text-sub);
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
+      transition: all 0.2s;
     }
     .action-icon-btn:hover { color: var(--text-main); background: rgba(255, 255, 255, 0.08); }
-    .send-btn-gemini.active { color: var(--accent-blue); background: rgba(168, 199, 250, 0.12); }
+    .send-btn-mquan.active { color: var(--accent-blue); background: rgba(168, 199, 250, 0.12); }
 
-    .disclaimer { font-size: 0.75rem; color: var(--text-sub); text-align: center; }
+    .disclaimer { font-size: 0.72rem; color: var(--text-sub); text-align: center; }
 
     .modal-backdrop {
       position: fixed;
@@ -247,31 +269,31 @@
     .modal-card {
       background: var(--sidebar-bg);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
-      padding: 2rem;
+      border-radius: 20px;
+      padding: 1.75rem;
       width: 100%;
-      max-width: 480px;
+      max-width: 460px;
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1.15rem;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     }
-    .modal-card h3 { font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+    .modal-card h3 { font-size: 1.15rem; display: flex; align-items: center; gap: 0.5rem; }
     .modal-card input {
       width: 100%;
       background: #131314;
       border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 12px;
-      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
       color: white;
       outline: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
     .modal-card input:focus { border-color: var(--accent-blue); }
 
-    .modal-btn-row { display: flex; justify-content: flex-end; gap: 0.75rem; }
-    .btn-cancel { background: transparent; border: none; color: var(--text-sub); padding: 0.6rem 1.2rem; cursor: pointer; font-size: 0.9rem; border-radius: 999px; }
-    .btn-save { background: #a8c7fa; color: #040e1b; border: none; padding: 0.6rem 1.5rem; border-radius: 999px; font-weight: 500; cursor: pointer; font-size: 0.9rem; }
+    .modal-btn-row { display: flex; justify-content: flex-end; gap: 0.65rem; }
+    .btn-cancel { background: transparent; border: none; color: var(--text-sub); padding: 0.5rem 1rem; cursor: pointer; font-size: 0.85rem; border-radius: 999px; }
+    .btn-save { background: #a8c7fa; color: #040e1b; border: none; padding: 0.5rem 1.3rem; border-radius: 999px; font-weight: 500; cursor: pointer; font-size: 0.85rem; }
   </style>
 </head>
 <body>
@@ -280,8 +302,8 @@
   <aside id="sidebar">
     <div class="sidebar-top">
       <div class="brand">
-        <div class="gemini-sparkle"></div>
-        <span>Gemini</span>
+        <div class="mquan-sparkle"></div>
+        <span>mquan</span>
       </div>
 
       <button class="new-chat-btn" onclick="startNewChat()">
@@ -305,7 +327,7 @@
 
     <div class="sidebar-bottom">
       <button class="api-key-btn" onclick="openKeyModal()">
-        <span>🔑</span> <span id="keyBtnText">Cài đặt Gemini API Key</span>
+        <span>🔑</span> <span id="keyBtnText">Cài đặt API Key</span>
       </button>
     </div>
   </aside>
@@ -316,23 +338,23 @@
       <div style="display: flex; align-items: center; gap: 1rem;">
         <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
         <div class="model-selector">
-          <span class="active">Gemini</span>
-          <span style="font-size: 0.85rem; color: #a8c7fa; background: rgba(168,199,250,0.1); padding: 2px 8px; border-radius: 6px;">1.5 Flash</span>
+          <span class="active">mquan</span>
+          <span id="modelBadge" style="font-size: 0.78rem; color: #a8c7fa; background: rgba(168,199,250,0.1); padding: 2px 7px; border-radius: 6px;">AI Flash</span>
         </div>
       </div>
-      <div style="width: 32px; height: 32px; border-radius: 50%; background: #a8c7fa; color: #040e1b; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;">
-        U
+      <div style="width: 30px; height: 30px; border-radius: 50%; background: #a8c7fa; color: #040e1b; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem;">
+        M
       </div>
     </div>
 
     <div class="chat-container" id="chatContainer">
       <div class="chat-inner" id="chatInner">
 
-        <!-- MÀN HÌNH CHÀO MỪNG CHUẨN GOOGLE GEMINI -->
+        <!-- MÀN HÌNH CHÀO MỪNG BAN ĐẦU -->
         <div class="welcome-screen" id="welcomeScreen">
           <div class="greeting">
             <h2>Xin chào bạn</h2>
-            <h3>Hôm nay tôi có thể giúp gì cho bạn?</h3>
+            <h3>Tôi là mquan, hôm nay tôi có thể giúp gì cho bạn?</h3>
           </div>
 
           <div class="suggestion-grid">
@@ -366,13 +388,13 @@
     <!-- KHUNG NHẬP VIÊN THUỐC -->
     <div class="input-wrapper">
       <div class="pill-input">
-        <textarea id="promptInput" rows="1" placeholder="Nhập câu hỏi hoặc lời nhắc tại đây..." oninput="autoResize(this)"></textarea>
-        <button class="action-icon-btn send-btn-gemini" id="sendBtn" onclick="handleSend()" title="Gửi">
+        <textarea id="promptInput" rows="1" placeholder="Hỏi mquan bất kỳ điều gì..." oninput="autoResize(this)"></textarea>
+        <button class="action-icon-btn send-btn-mquan" id="sendBtn" onclick="handleSend()" title="Gửi">
           ➤
         </button>
       </div>
       <div class="disclaimer">
-        Gemini có thể đưa ra thông tin không chính xác, hãy luôn kiểm tra lại các phản hồi quan trọng.
+        mquan AI có thể đưa ra thông tin không chính xác, hãy luôn kiểm tra lại các phản hồi quan trọng.
       </div>
     </div>
   </main>
@@ -380,12 +402,12 @@
   <!-- MODAL API KEY -->
   <div class="modal-backdrop" id="keyModal">
     <div class="modal-card">
-      <h3>🔑 Cài Đặt Google Gemini API Key</h3>
-      <p style="font-size: 0.9rem; color: var(--text-sub); line-height: 1.5;">
-        Dán mã <b>API Key miễn phí</b> của Google vào đây để kích hoạt toàn bộ trí thông minh của Gemini:
+      <h3>🔑 Cài Đặt API Key</h3>
+      <p style="font-size: 0.85rem; color: var(--text-sub); line-height: 1.5;">
+        Dán mã <b>API Key miễn phí</b> từ Google AI Studio vào đây để kích hoạt bộ não cho <b>mquan AI</b>:
       </p>
       <input type="password" id="apiKeyInput" placeholder="Dán mã AIzaSy... vào đây">
-      <p style="font-size: 0.8rem; color: #a8c7fa;">
+      <p style="font-size: 0.78rem; color: #a8c7fa;">
         💡 Lấy mã miễn phí 100% tại: <br>
         👉 <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: #a8c7fa; text-decoration: underline;">aistudio.google.com (Bấm vào đây)</a>
       </p>
@@ -406,6 +428,7 @@
     const apiKeyInput = document.getElementById('apiKeyInput');
     const keyBtnText = document.getElementById('keyBtnText');
     const sidebar = document.getElementById('sidebar');
+    const modelBadge = document.getElementById('modelBadge');
 
     let savedKey = localStorage.getItem('GEMINI_API_KEY') || '';
     if (savedKey) {
@@ -424,11 +447,11 @@
         savedKey = key;
         keyBtnText.textContent = 'API Key: Đã kích hoạt ✅';
         closeKeyModal();
-        alert('Đã kết nối Gemini API thành công!');
+        alert('Đã kết nối API thành công!');
       } else {
         localStorage.removeItem('GEMINI_API_KEY');
         savedKey = '';
-        keyBtnText.textContent = 'Cài đặt Gemini API Key';
+        keyBtnText.textContent = 'Cài đặt API Key';
         closeKeyModal();
       }
     }
@@ -463,6 +486,83 @@
       autoResize(promptInput);
     }
 
+    async function queryGemini(promptText, apiKey) {
+      const candidateModels = [
+        'gemini-1.5-flash-latest',
+        'gemini-2.0-flash',
+        'gemini-2.0-flash-exp',
+        'gemini-1.5-flash',
+        'gemini-1.5-pro-latest',
+        'gemini-pro'
+      ];
+
+      let lastError = null;
+
+      for (const m of candidateModels) {
+        try {
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${apiKey}`;
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: promptText }] }]
+            })
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (text) {
+              return { text, modelName: m };
+            }
+          } else {
+            const errData = await res.json();
+            if (res.status === 404 || errData.error?.message?.includes('not found')) {
+              lastError = errData.error?.message;
+              continue;
+            } else {
+              throw new Error(errData.error?.message || 'Lỗi API');
+            }
+          }
+        } catch (e) {
+          lastError = e.message;
+        }
+      }
+
+      try {
+        const listUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`;
+        const listRes = await fetch(listUrl);
+        if (listRes.ok) {
+          const listJson = await listRes.json();
+          const found = listJson.models?.find(mod => 
+            mod.supportedGenerationMethods?.includes('generateContent') && 
+            mod.name.includes('gemini')
+          );
+          if (found) {
+            const dynamicUrl = `https://generativelanguage.googleapis.com/v1beta/${found.name}:generateContent?key=${apiKey}`;
+            const dynRes = await fetch(dynamicUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                contents: [{ parts: [{ text: promptText }] }]
+              })
+            });
+            if (dynRes.ok) {
+              const dynData = await dynRes.json();
+              return {
+                text: dynData.candidates?.[0]?.content?.parts?.[0]?.text || "Không có phản hồi.",
+                modelName: found.name.replace('models/', '')
+              };
+            }
+          }
+        }
+      } catch (listErr) {
+        // bỏ qua
+      }
+
+      throw new Error(lastError || 'Không tìm thấy phiên bản AI khả dụng cho khóa API của bạn.');
+    }
+
     async function handleSend() {
       const text = promptInput.value.trim();
       if (!text) return;
@@ -483,48 +583,36 @@
       autoResize(promptInput);
       chatContainer.scrollTop = chatContainer.scrollHeight;
 
-      const geminiRow = document.createElement('div');
-      geminiRow.className = 'gemini-response';
-      geminiRow.innerHTML = `
-        <div class="gemini-sparkle gemini-avatar"></div>
+      const mquanRow = document.createElement('div');
+      mquanRow.className = 'mquan-response';
+      mquanRow.innerHTML = `
+        <div class="mquan-sparkle mquan-avatar"></div>
         <div class="response-content">Đang suy nghĩ...</div>
       `;
-      messagesList.appendChild(geminiRow);
+      messagesList.appendChild(mquanRow);
       chatContainer.scrollTop = chatContainer.scrollHeight;
 
-      const contentBox = geminiRow.querySelector('.response-content');
+      const contentBox = mquanRow.querySelector('.response-content');
 
       try {
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${savedKey}`;
+        const result = await queryGemini(text, savedKey);
         
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text }] }]
-          })
-        });
-
-        if (!response.ok) {
-          const err = await response.json();
-          throw new Error(err.error?.message || 'Lỗi khi gọi API');
+        if (result.modelName) {
+          modelBadge.textContent = result.modelName.replace('gemini-', '');
         }
-
-        const data = await response.json();
-        const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Không có nội dung phản hồi.";
 
         contentBox.textContent = '';
         let i = 0;
-        const speed = reply.length > 500 ? 6 : 14;
-        while (i < reply.length) {
-          contentBox.textContent = reply.slice(0, i + 1);
+        const speed = result.text.length > 500 ? 5 : 12;
+        while (i < result.text.length) {
+          contentBox.textContent = result.text.slice(0, i + 1);
           i++;
           chatContainer.scrollTop = chatContainer.scrollHeight;
           await new Promise(r => setTimeout(r, speed));
         }
 
       } catch (err) {
-        contentBox.textContent = `❌ Lỗi: ${err.message}\n👉 Vui lòng kiểm tra lại API Key trong mục "Cài đặt Gemini API Key".`;
+        contentBox.textContent = `❌ Lỗi: ${err.message}\n👉 Hãy thử bấm vào "Cài đặt API Key" để kiểm tra lại khóa của bạn.`;
       }
     }
 
